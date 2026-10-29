@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joshua Zulu | Portfolio</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg), #1e293b);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 64px 20px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        margin-bottom: 12px;
+      }
+
+      .tagline {
+        color: var(--muted);
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+      }
+
+      .card {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 14px;
+        padding: 24px 28px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Joshua Zulu</h1>
+      <p class="tagline">Professional portfolio website</p>
+
+      <div class="card">
+        <p>Welcome to my portfolio.</p>
+        <p>This is a placeholder homepage for the site. You can replace this content with your own bio, projects, and contact information.</p>
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+      </div>
+    </div>
+  </body>
+</html>
