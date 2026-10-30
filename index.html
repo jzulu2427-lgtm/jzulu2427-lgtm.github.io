@@ -4,48 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joshua Zulu | Portfolio</title>
+    <meta
+      name="description"
+      content="Joshua Zulu's portfolio website featuring projects, skills, and contact information."
+    />
     <style>
       :root {
-        --bg: #0f172a;
-        --panel: #111827;
+        --bg: #07111f;
+        --bg-2: #0f172a;
+        --panel: rgba(15, 23, 42, 0.8);
+        --panel-strong: #111827;
         --text: #e5e7eb;
         --muted: #94a3b8;
         --accent: #38bdf8;
+        --accent-2: #22c55e;
+        --border: rgba(148, 163, 184, 0.2);
+        --shadow: rgba(14, 165, 233, 0.18);
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, var(--bg), #1e293b);
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, var(--bg), var(--bg-2));
         color: var(--text);
         line-height: 1.6;
       }
 
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 64px 20px;
-      }
-
-      h1 {
-        font-size: clamp(2.2rem, 5vw, 4rem);
-        margin-bottom: 12px;
-      }
-
-      .tagline {
-        color: var(--muted);
-        font-size: 1.1rem;
-        margin-bottom: 32px;
-      }
-
-      .card {
-        background: rgba(17, 24, 39, 0.8);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        border-radius: 14px;
-        padding: 24px 28px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      img {
+        max-width: 100%;
+        display: block;
       }
 
       a {
@@ -56,18 +51,489 @@
       a:hover {
         text-decoration: underline;
       }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 20px 80px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 18px 0 12px;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
+
+      .nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 32px;
+        min-height: 70vh;
+        padding: 40px 0 30px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.7);
+        border-radius: 999px;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        margin: 0 0 16px;
+        line-height: 1.05;
+      }
+
+      .highlight {
+        color: var(--accent);
+      }
+
+      .tagline {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 1.08rem;
+        margin-bottom: 28px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 22px;
+        border-radius: 10px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), #2563eb);
+        color: white;
+        box-shadow: 0 12px 28px var(--shadow);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+      }
+
+      .stat {
+        min-width: 120px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.7rem;
+        color: var(--text);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .profile-card {
+        background: rgba(17, 24, 39, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+      }
+
+      .profile-visual {
+        height: 420px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.8));
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-visual::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .profile-badge {
+        position: absolute;
+        right: 28px;
+        bottom: 26px;
+        background: rgba(8, 47, 73, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+
+      .profile-badge strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding-top: 70px;
+      }
+
+      .section-header {
+        margin-bottom: 24px;
+      }
+
+      .section-header h2 {
+        margin: 0 0 8px;
+        font-size: clamp(1.8rem, 3vw, 2.7rem);
+      }
+
+      .section-header p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+      }
+
+      .card {
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px 26px;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.15);
+      }
+
+      .card p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .list li {
+        color: var(--text);
+        padding-left: 18px;
+        position: relative;
+      }
+
+      .list li::before {
+        content: "•";
+        color: var(--accent);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .skill {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(56, 189, 248, 0.08);
+        color: var(--text);
+        font-size: 0.92rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .project-thumb {
+        height: 180px;
+        border-radius: 14px 14px 0 0;
+        border: 1px solid var(--border);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(14, 165, 233, 0.08), rgba(15, 23, 42, 0.8));
+      }
+
+      .project-body {
+        padding: 20px 18px 18px;
+      }
+
+      .project-body h3 {
+        margin: 0 0 8px;
+        font-size: 1.2rem;
+      }
+
+      .project-body p {
+        margin: 0 0 16px;
+        color: var(--muted);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .project-tags span {
+        padding: 6px 8px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .contact-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        color: var(--muted);
+        padding: 32px 0 12px;
+        text-align: center;
+      }
+
+      @media (max-width: 840px) {
+        .hero,
+        .about-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .profile-visual {
+          height: 340px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Joshua Zulu</h1>
-      <p class="tagline">Professional portfolio website</p>
+      <header class="topbar">
+        <div class="brand">Joshua Zulu</div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-      <div class="card">
-        <p>Welcome to my portfolio.</p>
-        <p>This is a placeholder homepage for the site. You can replace this content with your own bio, projects, and contact information.</p>
-        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
-      </div>
+      <main>
+        <section class="hero">
+          <div>
+            <div class="eyebrow">Portfolio</div>
+            <h1>
+              Building <span class="highlight">digital experiences</span>
+              that solve real problems.
+            </h1>
+            <p class="tagline">
+              I’m Joshua, a developer focused on creating clean, modern, and user-friendly web experiences.
+              I enjoy turning ideas into launch-ready products that look great and work smoothly.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#projects">View Projects</a>
+              <a class="btn btn-secondary" href="mailto:hello@example.com">Let’s Talk</a>
+            </div>
+
+            <div class="stats" aria-label="quick stats">
+              <div class="stat">
+                <strong>2+</strong>
+                <span>Years Learning</span>
+              </div>
+              <div class="stat">
+                <strong>5+</strong>
+                <span>Projects Built</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Curiosity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-visual" aria-label="Portfolio hero illustration">
+              <div class="profile-badge">
+                <strong>Available for work</strong>
+                <span>Frontend / Product</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="section">
+          <div class="section-header">
+            <h2>About Me</h2>
+            <p>I create meaningful web experiences with thoughtful design and clean code.</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="card">
+              <p>
+                I’m a passionate developer who enjoys building products that feel modern, fast, and easy to use.
+                My work combines design thinking, frontend skills, and a problem-solving mindset.
+              </p>
+            </div>
+
+            <div class="card">
+              <ul class="list">
+                <li>Focused on responsive web design</li>
+                <li>Interested in UI/UX and product thinking</li>
+                <li>Enjoys learning and shipping useful projects</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section">
+          <div class="section-header">
+            <h2>Skills</h2>
+            <p>Tools and technologies I work with.</p>
+          </div>
+
+          <div class="card">
+            <div class="skills">
+              <span class="skill">HTML5</span>
+              <span class="skill">CSS3</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Responsive Design</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">UI/UX</span>
+              <span class="skill">Figma</span>
+              <span class="skill">Git</span>
+              <span class="skill">Web Performance</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p>Examples of the type of work I’m building and showcasing.</p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="card project-card">
+              <div class="project-thumb" aria-label="Portfolio website preview"></div>
+              <div class="project-body">
+                <h3>Portfolio Website</h3>
+                <p>A modern personal website to showcase projects, experience, and contact information.</p>
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <div class="project-thumb" aria-label="Business landing page preview"></div>
+              <div class="project-body">
+                <h3>Business Landing Page</h3>
+                <p>A clean marketing page designed to present a product or service in a strong way.</p>
+                <div class="project-tags">
+                  <span>Landing Page</span>
+                  <span>Branding</span>
+                  <span>UI</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <div class="project-thumb" aria-label="Dashboard preview"></div>
+              <div class="project-body">
+                <h3>Analytics Dashboard</h3>
+                <p>An interface concept for tracking key metrics, reports, and performance trends.</p>
+                <div class="project-tags">
+                  <span>Dashboard</span>
+                  <span>UX</span>
+                  <span>Data</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" class="section">
+          <div class="card contact-box">
+            <div>
+              <h2 style="margin: 0 0 8px;">Let’s build something great.</h2>
+              <p style="margin: 0; color: var(--muted);">I’m open to projects, collaborations, and opportunities.</p>
+            </div>
+            <a class="btn btn-primary" href="mailto:hello@example.com">Contact Me</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>© 2026 Joshua Zulu. Built with HTML, CSS, and creativity.</footer>
     </div>
   </body>
 </html>
